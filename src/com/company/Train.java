@@ -23,7 +23,7 @@ public class Train {
     }
 
     public void setTrain_number(int train_number) {
-        this.train_number = train_number >= 0 && train_number < 999 ? train_number : -666;
+        this.train_number = train_number >= 0 && train_number <= 999 ? train_number : -666;
     }
 
     public int getTrain_number() {
@@ -48,10 +48,11 @@ public class Train {
 
     public void setCost_of_travel(BigDecimal cost_of_travel) {
         if (cost_of_travel.compareTo(BigDecimal.ZERO) < 0) {
-            cost_of_travel.equals(666);
+            this.cost_of_travel = new BigDecimal(666);
         } else {
             this.cost_of_travel = cost_of_travel;
         }
+        //this.cost_of_travel =(cost_of_travel.compareTo(BigDecimal.ZERO) < 0) ? new BigDecimal(666) :cost_of_travel;
     }
 
     public BigDecimal getCost_of_travel() {
